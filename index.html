@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Just Stream It</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <!-- <h1>Just Stream It</h1> -->
+    <ul class="topnav">
+        <li class="nav_el">
+            <h4 class="nav_title">Just Stream It</h4>
+        </li>
+        <li class = "nav_el">
+            <a class="nav_button" href="#home">Acceuil</a>
+        </li>
+        <li class="nav_el">
+            <a class="nav_button" href="#categories">Categories</a>
+        </li>
+    </ul>
+    
+<section id="best-movie" class="best_movie_box section-element">
+    <h2>Meilleur Film</h2>
+        <script>getMOVIES("best-movie","sort_by=-imdb_score",0,1)</script>
+</section>
+
+<section class="movies_lists_box container">
+
+    <div id= "best_rated" class="section-element">
+        <h2>Les mieux notés</h2>
+        <div id="carousselBestRated" class="photoCaroussel">
+            <script>getMOVIES("carousselBestRated","sort_by=-imdb_score",1,5);</script>
+        </div>
+    </div>
+    
+    <div id="old_movies" class="section-element">
+        <h2>Films d'un autre temps</h2>
+        <div id="carousselOldMovies" class="photoCaroussel">
+            <script>getMOVIES("carousselOldMovies","sort_by=year",0,4);</script>
+        </div>
+    </div>
+    
+    <div id="animation" class="section-element">
+    <h2>Animation</h2>
+        <div id="carousselAnimation" class="photoCaroussel">
+            <script>getMOVIES("carousselAnimation","genre_contains=animation&=",0,4);</script>
+        </div>
+    </div>
+    
+    <div id="history" class="section-element">
+    <h2>Films & Récits Historiques</h2>
+        <div id="carousselHistory" class="photoCaroussel">
+            <script>getMOVIES("carousselHistory","genre_contains=history&=",0,4);</script>
+        </div>
+    </div>
+
+</section>
+    
+</body>
+</html>
