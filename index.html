@@ -7,7 +7,6 @@
     <script src="main.js"></script>
   </head>
   <body>
-    <!-- <h1>Just Stream It</h1> -->
     <ul class="topnav">
       <li class="nav_el">
         <h4 class="nav_title">Just Stream It</h4>
@@ -20,54 +19,10 @@
       </li>
     </ul>
 
-    <section class="movies_lists_box container">
-      <div id="best-movie" class="best_movie_box section-element">
-        <h2>Meilleur Film</h2>
-        <script>
-          getMOVIES("best-movie", "sort_by=-imdb_score", 0, 1);
-        </script>
-      </div>
-
-      <div id="best_rated" class="section-element">
-        <h2>Les mieux notés</h2>
-        <div class="caroussel-wrapper">
-          <div class="left-arrow arrow">&lt</div>
-          <div id="carousselBestRated" class="photoCaroussel">
-            <script>
-              getMOVIES("carousselBestRated", "sort_by=-imdb_score", 1, 5);
-            </script>
-          </div>
-          <div class="right-arrow arrow">&gt</div>
-        </div>
-        <!-- <div class="right-arrow"></div> -->
-      </div>
-
-      <div id="old_movies" class="section-element">
-        <h2>Films d'un autre temps</h2>
-        <div id="carousselOldMovies" class="photoCaroussel">
-          <script>
-            getMOVIES("carousselOldMovies", "sort_by=year", 0, 7);
-          </script>
-        </div>
-      </div>
-
-      <div id="animation" class="section-element">
-        <h2>Animation</h2>
-        <div id="carousselAnimation" class="photoCaroussel">
-          <script>
-            getMOVIES("carousselAnimation", "genre_contains=animation&=", 0, 7);
-          </script>
-        </div>
-      </div>
-
-      <div id="history" class="section-element">
-        <h2>Films & Récits Historiques</h2>
-        <div id="carousselHistory" class="photoCaroussel">
-          <script>
-            getMOVIES("carousselHistory", "genre_contains=history&=", 0, 7);
-          </script>
-        </div>
-      </div>
+    <section id="movies_container" class="movies_lists_box container">
+      <script>
+        buildMoviesSection("movies_container");
+      </script>
     </section>
   </body>
 </html>
