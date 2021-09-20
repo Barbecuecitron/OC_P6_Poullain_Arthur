@@ -1,5 +1,3 @@
-//API_URL = "http://localhost:8000/api/v1/titles"
-
 const API_BASE = "http://localhost:8000/api/v1";
 
 const categories = [
@@ -44,9 +42,8 @@ const categories = [
     visibleItems: 4,
   },
 ];
-// Remplacer par une fonction qui peuple la modale
-const url_base = "http://localhost:8000/api/v1/";
 
+// Retrieve our movie results
 async function getMovies(query, start, end) {
   const movies = [];
   let apiURL = `${API_BASE}/titles/?${query}`;
@@ -57,8 +54,6 @@ async function getMovies(query, start, end) {
     movies.push(...data.results);
     apiURL = data.next;
   }
-
-  //  http://localhost:8000/api/v1/titles/499549 lien qui sauve des vies
 
   // We retrieve 5 by 5, if we want 7, we retrieve 10 and slice(0, 7) to have the 7 firsts
   // Way better than our previous version where we had to check if the number was a %5
@@ -263,6 +258,13 @@ async function populateModal(movieID) {
   return modalElements;
 }
 
+async function buildBestMoviePrensentation(movieID) {
+  const movie = await getMoviesInfos(movieID);
+
+  // console.log(movie);
+  return [movie.title, movie.description];
+}
+
 // Create the modal skeleton
 async function createModal(movieID) {
   const modalSection = document.getElementsByClassName("popup");
@@ -322,7 +324,25 @@ async function buildMoviesSection(sectionId) {
 
     // Create div to contains all movie divs
     const carouselDiv = document.createElement("div");
-    carouselDiv.classList.add("caroussel-wrapper");
+    // Handle 1st movie presentation / resume / button
+    if (category.id == "best_movie") {
+      const bestMovieInfos = await buildBestMoviePrensentation(movieID);
+      carouselDiv.setAttribute("id", "best-movie-presentation");
+      const resumeBox = document.createElement("div");
+      resumeBox.setAttribute("id", "best-movie-textbox");
+      const titleBox = document.createElement("div");
+      titleBox.setAttribute("id", "best-movie-titlebox");
+      titleBox.innerHTML = `<p>${bestMovieInfos[0]}</p>`;
+      resumeBox.innerHTML = `<p>" ${bestMovieInfos[1]} "</p>`;
+      const button = document.createElement("div");
+      button.setAttribute("id", "view-best-movie-button");
+      button.innerHTML += "Voir";
+      carouselDiv.appendChild(button);
+      carouselDiv.appendChild(titleBox);
+      carouselDiv.appendChild(resumeBox);
+    } else {
+      carouselDiv.classList.add("caroussel-wrapper");
+    }
 
     if (category.end > category.visibleItems) {
       const previousDiv = document.createElement("div");

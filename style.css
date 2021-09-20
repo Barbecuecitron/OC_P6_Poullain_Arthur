@@ -2,6 +2,7 @@
 :root {
   --primary-color: #e61f26;
   --navbar-color: #292929;
+  --navbar-background-color: #181818;
   --background-color: #0f0f0f;
   --popup-box-color: #0f0f0f6c;
   --button-select-color: #b12025;
@@ -28,7 +29,7 @@ body {
   padding: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--navbar-color);
+  background-color: var(--navbar-background-color);
   height: 50px;
 }
 
@@ -76,41 +77,18 @@ li a:hover {
   /* margin-bottom: 2.5vw; */
 }
 
-.section-element {
-  margin-top: 15px;
-}
-
-.best_movie_box {
-  /* display: flex; */
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.section-element h2 {
-  margin-bottom: 22.5px;
-  color: antiquewhite;
-  background: var(--navbar-color);
-}
-
 h2 {
   color: antiquewhite;
+  transform: scale(0.75, 1);
   background: var(--navbar-color);
-}
-
-.photoCaroussel {
-  margin-top: 7.5px;
-  display: flex;
-  flex-wrap: wrap;
-  /* align-items: center; */
-  justify-content: center;
-  flex-direction: row;
+  padding: 0px;
+  margin: 0px;
 }
 
 .movie-poster {
-  margin: 8.5px;
-  overflow: hidden;
+  margin: 10px;
   position: relative;
+  padding-top: 1%;
 }
 
 .movie-poster:hover {
@@ -135,10 +113,6 @@ h2 {
 
 .movie-poster:hover .overlay {
   width: 100%;
-}
-
-#best-movie .movie-poster {
-  margin-left: 600px;
 }
 
 .left-arrow {
@@ -305,4 +279,61 @@ h2 {
   font-weight: 100;
   overflow: auto;
   font-size: 20px;
+}
+
+#best-movie-presentation {
+  margin-top: 7.5px;
+  margin-bottom: 7.5px;
+  position: relative;
+  width: 470%;
+  height: 80%;
+  top: 50%;
+  left: -185%;
+  color: rgba(255, 255, 255, 1);
+  /* background-color: var(--navbar-color); */
+  display: flex;
+  justify-content: left;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+#best-movie-textbox {
+  margin-top: 190px;
+  position: absolute;
+  width: 50%;
+  height: 45%;
+  left: 25%;
+  color: rgba(255, 255, 255, 0.8);
+  /* background-color: rgb(112, 37, 37); */
+  font-weight: 50;
+  font-size: 17px;
+  font-style: italic;
+}
+#best-movie-titlebox {
+  margin-top: 20px;
+  position: absolute;
+  width: 50%;
+  height: 15%;
+  left: 25%;
+  /* color: rgba(255, 255, 255, 1); */
+  /* background-color: rgb(112, 37, 37); */
+  font-weight: 80;
+  font-size: 30px;
+}
+
+#view-best-movie-button {
+  margin-top: 100px;
+  position: absolute;
+  width: 25%;
+  height: 15%;
+  left: 37.5%;
+  /* color: rgba(255, 255, 255, 1); */
+  background-color: rgb(112, 37, 37);
+  font-weight: 80;
+  font-size: 30px;
+}
+
+#view-best-movie-button:hover {
+  background-color: var(--primary-color);
+  cursor: pointer;
 }
